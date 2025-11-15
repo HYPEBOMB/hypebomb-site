@@ -310,20 +310,21 @@
   left: 50%;
   top: 50%;
 
-  /* Делаем изображение больше круга, чтобы круг бомбы совпал с кругом шара */
-  width: 210%;
+  /* уменьшили до разумного размера */
+  width: 165%;
   height: auto;
 
-  /* Центруем и поднимаем, чтобы фитиль вышел наружу */
-  transform: translate(-50%, -78%);
+  /* опустили вниз, чтобы круг совпал */
+  transform: translate(-50%, -63%);
 
   object-fit: contain;
   pointer-events: none;
   z-index: 2;
   filter:
-    drop-shadow(0 0 30px rgba(56, 189, 248, 0.8))
-    drop-shadow(0 0 55px rgba(129, 140, 248, 0.75));
+    drop-shadow(0 0 28px rgba(56, 189, 248, 0.85))
+    drop-shadow(0 0 48px rgba(129, 140, 248, 0.75));
 }
+
 
 
     /* ТАЙМЕР ВНУТРИ ШАРА */
