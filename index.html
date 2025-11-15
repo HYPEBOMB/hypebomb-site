@@ -306,19 +306,16 @@
    /* PNG-бомба внутри шара */
 .bomb-img {
   position: absolute;
-  top: 50%;
   left: 50%;
-  width: 90%;         /* размер бомбы относительно шара — регулируй тут */
-  height: 90%;
-  transform: translate(-50%, -55%);  /* центр + лёгкий подъём для фитиля */
-  object-fit: contain;
+  top: 50%;
+  width: 95%;          /* сколько круга занимает бомба */
+  height: auto;        /* сохраняем пропорции, без растягивания */
+  transform: translate(-50%, -56%);  /* центр + чуть выше, чтобы фитиль торчал */
   pointer-events: none;
   z-index: 2;
-
-  /* мягкая неоновая тень */
   filter:
-    drop-shadow(0 0 30px rgba(56,189,248,0.8))
-    drop-shadow(0 0 45px rgba(129,140,248,0.75));
+    drop-shadow(0 0 30px rgba(56, 189, 248, 0.8))
+    drop-shadow(0 0 55px rgba(129, 140, 248, 0.75));
 }
 
 
