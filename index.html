@@ -25,19 +25,23 @@
 
 /* ====== СТИЛИ ДЛЯ HERO TITLE ====== */
 
-/* Общий стиль — весь текст делаем неоновым */
+/* ====== СТИЛИ ДЛЯ HERO TITLE — ЧЁТКИЕ, НЕ РАЗМАЗАННЫЕ ====== */
+
+/* весь заголовок остаётся белым */
 .hero-title {
-  background: linear-gradient(135deg, #38bdf8, #a855f7);
-  -webkit-background-clip: text;
-  color: transparent;
+  color: #f9fafb;
 }
 
-/* "Hype Bomb" — единственный span → красим огненным градиентом */
+/* только "Hype Bomb" делаем огненным градиентом */
 .hero-title span {
-  background: linear-gradient(135deg, #f97316, #fb923c, #facc15, #dc2626);
+  background: linear-gradient(135deg, #f97316, #fb923c, #facc15, #f97316);
   -webkit-background-clip: text;
   color: transparent;
+  text-shadow:
+    0 0 4px rgba(249, 115, 22, 0.7),
+    0 0 10px rgba(248, 250, 252, 0.3);
 }
+
 
 /* Для красоты — свечение */
 .hero-title span {
