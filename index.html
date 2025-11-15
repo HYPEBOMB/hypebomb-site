@@ -1,103 +1,233 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <title>HYPEBOMB (HBOMB) – The Hype Is Ticking</title>
+  <title>HYPEBOMB (HBOMB) – Неоновый мем-токен на TON</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    content="HYPEBOMB (HBOMB) – мем-токен для тех, кто живет FOMO. The Hype Is Ticking."
+    content="HYPEBOMB (HBOMB) — неоновый мем-токен на TON. Чистый хайп, комьюнити и взрывной маркетинг. The fuse is lit."
   />
   <style>
+    :root {
+      --bg-dark: #040414;
+      --bg-deep: #050519;
+      --accent-blue: #38bdf8;
+      --accent-violet: #7c3aed;
+      --accent-soft: #a5b4fc;
+      --text-main: #f9fafb;
+      --text-muted: #9ca3af;
+      --card-bg: rgba(10, 16, 40, 0.96);
+      --border-subtle: rgba(148, 163, 184, 0.55);
+      --glow-blue: 0 0 35px rgba(56, 189, 248, 0.55);
+      --glow-violet: 0 0 40px rgba(167, 139, 250, 0.6);
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
+
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
         sans-serif;
-      background: radial-gradient(circle at top, #141414 0, #050509 55%, #000 100%);
-      color: #f5f5f5;
+      background:
+        radial-gradient(circle at top, #15153a 0, #05051d 48%, #020012 100%);
+      color: var(--text-main);
       line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
+
     a {
       color: inherit;
       text-decoration: none;
     }
+
     .container {
-      max-width: 1100px;
+      max-width: 1120px;
       margin: 0 auto;
-      padding: 24px 16px 64px;
+      padding: 24px 16px 72px;
     }
+
+    /* HEADER */
+
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 40px;
+      gap: 16px;
     }
-    .logo {
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-orb {
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      background:
+        radial-gradient(circle at 30% 20%, #fbbf24, #fb7185 35%, #7c3aed 65%, #0ea5e9 100%);
+      box-shadow: var(--glow-blue), var(--glow-violet);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* сюда можно вставить своё PNG-лого */
+    .logo-orb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 999px;
+      display: block;
+    }
+
+    .logo-inner-bomb {
+      width: 70%;
+      height: 70%;
+      border-radius: 999px;
+      border: 2px solid rgba(248, 250, 252, 0.85);
+      box-shadow: 0 0 18px rgba(248, 250, 252, 0.45);
+      position: relative;
+    }
+
+    .logo-inner-bomb::before {
+      content: "";
+      position: absolute;
+      width: 40%;
+      height: 40%;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #e5e7eb, transparent 70%);
+      top: 5px;
+      left: 6px;
+      opacity: 0.9;
+    }
+
+    .logo-inner-bomb::after {
+      content: "";
+      position: absolute;
+      width: 40%;
+      height: 40%;
+      border-radius: 999px;
+      border-top-right-radius: 0;
+      border-bottom-left-radius: 0;
+      border: 2px solid rgba(248, 250, 252, 0.8);
+      border-left: none;
+      border-bottom: none;
+      top: -7px;
+      right: -7px;
+      box-shadow: 0 0 10px rgba(249, 115, 22, 0.9);
+    }
+
+    .logo-text-main {
       font-weight: 800;
       letter-spacing: 0.12em;
-      font-size: 14px;
+      font-size: 13px;
       text-transform: uppercase;
     }
+
+    .logo-text-sub {
+      font-size: 11px;
+      opacity: 0.8;
+      color: var(--accent-soft);
+    }
+
     .tag-pill {
       border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(199, 210, 254, 0.32);
       padding: 6px 14px;
       font-size: 12px;
-      opacity: 0.8;
+      background: radial-gradient(circle at top, rgba(56, 189, 248, 0.25), rgba(15, 23, 42, 0.9));
+      color: #e5e7eb;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
     }
+
+    .tag-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 10px rgba(34, 197, 94, 0.9);
+    }
+
+    /* HERO */
+
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
       gap: 32px;
       align-items: center;
       margin-bottom: 56px;
     }
-    @media (max-width: 768px) {
+
+    @media (max-width: 900px) {
       .hero {
         grid-template-columns: 1fr;
       }
       header {
         flex-direction: column;
-        gap: 12px;
+        align-items: flex-start;
+      }
+      .hero-visual {
+        order: -1;
       }
     }
-    .hero-title {
-      font-size: clamp(32px, 5vw, 52px);
-      font-weight: 800;
-      line-height: 1.1;
-      margin-bottom: 16px;
-    }
-    .hero-subtitle {
-      font-size: 15px;
-      max-width: 480px;
-      opacity: 0.85;
-      margin-bottom: 24px;
-    }
+
     .badge-row {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
+
     .badge {
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.16em;
       padding: 4px 10px;
       border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      opacity: 0.9;
+      border: 1px solid rgba(165, 180, 252, 0.7);
+      background: rgba(15, 23, 42, 0.8);
+      color: var(--accent-soft);
     }
+
+    .hero-title {
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .hero-title span {
+      background: linear-gradient(135deg, #38bdf8, #a855f7);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 15px;
+      max-width: 540px;
+      opacity: 0.9;
+      margin-bottom: 24px;
+      color: #e5e7eb;
+    }
+
     .buttons {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
       margin-bottom: 14px;
     }
+
     .btn {
       padding: 10px 22px;
       border-radius: 999px;
@@ -109,162 +239,309 @@
       align-items: center;
       gap: 8px;
       transition: transform 0.15s ease, box-shadow 0.15s ease,
-        background 0.15s ease, border-color 0.15s ease;
+        background 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+      white-space: nowrap;
     }
+
     .btn-primary {
-      background: linear-gradient(135deg, #ff4d4d, #ffb347);
-      color: #050505;
-      box-shadow: 0 8px 24px rgba(255, 77, 77, 0.35);
+      background: linear-gradient(135deg, #38bdf8, #a855f7);
+      color: #020617;
+      box-shadow: var(--glow-blue);
     }
+
     .btn-outline {
-      border-color: rgba(255, 255, 255, 0.4);
-      background: rgba(0, 0, 0, 0.35);
-      color: #f5f5f5;
+      border-color: rgba(191, 219, 254, 0.55);
+      background: rgba(15, 23, 42, 0.8);
+      color: #e5e7eb;
     }
+
     .btn:hover {
       transform: translateY(-1px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.9);
+      opacity: 0.95;
     }
-    .btn-secondary-text {
-      font-size: 12px;
-      opacity: 0.7;
-    }
+
     .hero-meta {
       font-size: 12px;
-      opacity: 0.7;
+      opacity: 0.75;
+      max-width: 460px;
+      color: var(--text-muted);
     }
-    .hero-card {
-      border-radius: 24px;
-      padding: 20px 18px;
-      background: radial-gradient(
-          circle at top left,
-          rgba(255, 77, 77, 0.18),
-          transparent 60%
-        ),
-        rgba(10, 10, 15, 0.95);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(16px);
+
+    .hero-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    .hero-card-title {
-      font-size: 16px;
-      font-weight: 600;
-      margin-bottom: 14px;
+
+    .hero-orb-wrap {
+      width: 100%;
+      max-width: 340px;
+      aspect-ratio: 1/1;
+      border-radius: 999px;
+      background:
+        radial-gradient(circle at 30% 20%, #f97316, #a855f7 45%, #0ea5e9 85%);
+      box-shadow: var(--glow-blue), var(--glow-violet);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 26px;
+      position: relative;
+      overflow: hidden;
+      animation: heroFloat 5s ease-in-out infinite;
     }
-    .hero-card-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-      font-size: 13px;
+
+    .hero-orb-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #0b1020, #020617 60%, #020617 100%);
+      box-shadow: inset 0 0 40px rgba(15, 23, 42, 0.9);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    .stat {
-      padding: 10px 10px;
-      border-radius: 14px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(0, 0, 0, 0.45);
+
+    /* ТАЙМЕР ВНУТРИ ШАРА */
+
+    .hero-timer {
+      font-family: "SF Mono", ui-monospace, Menlo, Monaco, Consolas,
+        "Liberation Mono", "Courier New", monospace;
+      font-size: 34px;
+      letter-spacing: 0.08em;
+      color: #e5f4ff;
+      text-shadow:
+        0 0 8px rgba(56, 189, 248, 0.9),
+        0 0 18px rgba(129, 140, 248, 0.9);
+      display: inline-flex;
+      align-items: baseline;
     }
-    .stat-label {
-      font-size: 11px;
-      opacity: 0.6;
-      margin-bottom: 4px;
+
+    .hero-timer span.blink {
+      animation: blinkColon 1.1s steps(2, start) infinite;
+      margin: 0 2px;
     }
-    .stat-value {
-      font-weight: 600;
+
+    @keyframes blinkColon {
+      0%, 45% {
+        opacity: 1;
+      }
+      55%, 100% {
+        opacity: 0;
+      }
     }
+
+    .hero-orb-inner::before {
+      content: "";
+      position: absolute;
+      inset: 18%;
+      border-radius: 999px;
+      border: 2px solid rgba(244, 244, 245, 0.85);
+      box-shadow: 0 0 36px rgba(244, 244, 245, 0.45);
+      opacity: 0.9;
+    }
+
+    .hero-orb-inner::after {
+      content: "";
+      position: absolute;
+      width: 30%;
+      height: 30%;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, rgba(248, 250, 252, 0.92), transparent 70%);
+      top: 18%;
+      left: 20%;
+      opacity: 0.9;
+    }
+
+    .hero-flame {
+      position: absolute;
+      top: 6%;
+      right: 22%;
+      width: 64px;
+      height: 64px;
+      background: radial-gradient(circle at 30% 0, #fef9c3, #fb923c 45%, #ef4444 85%);
+      border-radius: 999px 999px 60% 60%;
+      transform: rotate(-12deg);
+      box-shadow: 0 0 28px rgba(248, 250, 252, 0.6);
+      animation: flamePulse 1.4s ease-in-out infinite;
+    }
+
+    .hero-flame::after {
+      content: "";
+      position: absolute;
+      width: 40%;
+      height: 40%;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.9), transparent 70%);
+      top: 16%;
+      left: 26%;
+    }
+
+    @keyframes heroFloat {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    @keyframes flamePulse {
+      0%, 100% {
+        transform: translateY(0) rotate(-12deg);
+        box-shadow: 0 0 22px rgba(248, 250, 252, 0.7);
+      }
+      50% {
+        transform: translateY(-3px) rotate(-10deg);
+        box-shadow: 0 0 40px rgba(248, 250, 252, 0.95);
+      }
+    }
+
+    /* GENERAL SECTIONS */
+
     section {
-      margin-bottom: 40px;
+      margin-bottom: 42px;
     }
+
     h2 {
       font-size: 20px;
       margin-bottom: 10px;
     }
+
     .section-subtitle {
       font-size: 13px;
-      opacity: 0.8;
+      opacity: 0.85;
       margin-bottom: 18px;
+      max-width: 640px;
+      color: #e5e7eb;
     }
-    .tokenomics-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 14px;
-    }
+
     .card {
       border-radius: 18px;
       padding: 16px 14px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      background: rgba(5, 5, 10, 0.9);
+      border: 1px solid var(--border-subtle);
+      background: var(--card-bg);
       font-size: 13px;
     }
+
     .card-title {
       font-weight: 600;
       margin-bottom: 6px;
+      color: #e5e7eb;
     }
+
+    .tokenomics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 14px;
+    }
+
     .steps {
       list-style: none;
       counter-reset: step;
     }
+
     .steps li {
       counter-increment: step;
       display: flex;
       gap: 10px;
       margin-bottom: 10px;
       font-size: 13px;
+      color: #e5e7eb;
     }
+
     .steps li::before {
       content: counter(step);
       width: 20px;
       height: 20px;
       border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(191, 219, 254, 0.9);
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 11px;
       margin-top: 1px;
+      color: var(--accent-soft);
     }
+
     .roadmap-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
       gap: 14px;
     }
+
     .roadmap-phase-title {
       font-weight: 600;
       margin-bottom: 6px;
       font-size: 14px;
+      color: #e5e7eb;
     }
+
     .roadmap-phase ul {
       padding-left: 16px;
       font-size: 13px;
+      color: #e5e7eb;
     }
+
+    .pill {
+      border-radius: 999px;
+      padding: 2px 10px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      font-size: 11px;
+      opacity: 0.9;
+      background: rgba(15, 23, 42, 0.8);
+    }
+
     footer {
       font-size: 11px;
-      opacity: 0.6;
-      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      opacity: 0.75;
+      border-top: 1px solid rgba(148, 163, 184, 0.6);
       padding-top: 14px;
-      margin-top: 14px;
+      margin-top: 18px;
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
       justify-content: space-between;
+      color: var(--text-muted);
     }
+
     .social-links {
       display: flex;
       gap: 10px;
       font-size: 12px;
+      flex-wrap: wrap;
     }
-    .pill {
-      border-radius: 999px;
-      padding: 2px 10px;
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      font-size: 11px;
-      opacity: 0.8;
+
+    @media (max-width: 600px) {
+      .hero-meta {
+        max-width: 100%;
+      }
+      footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container">
     <header>
-      <div class="logo">HYPEBOMB • HBOMB</div>
-      <div class="tag-pill">The Hype Is Ticking</div>
+      <div class="logo-wrap">
+        <div class="logo-orb">
+          <!-- Если будет своё PNG-лого, просто раскомментируй строку ниже и положи файл рядом -->
+          <!-- <img src="hypebomb-logo.png" alt="HYPEBOMB logo" /> -->
+          <div class="logo-inner-bomb"></div>
+        </div>
+        <div>
+          <div class="logo-text-main">HYPEBOMB • HBOMB</div>
+          <div class="logo-text-sub">Неоновый мем-токен на TON</div>
+        </div>
+      </div>
+      <div class="tag-pill">
+        <span class="tag-dot"></span>
+        The fuse is lit. Tick… Tick… 💣
+      </div>
     </header>
 
     <main>
@@ -273,61 +550,89 @@
         <div>
           <div class="badge-row">
             <div class="badge">Meme Token</div>
-            <div class="badge">Fair Launch</div>
+            <div class="badge">TON Ecosystem</div>
             <div class="badge">Community Driven</div>
           </div>
-          <h1 class="hero-title">The First True<br />HYPE Native Token.</h1>
+          <h1 class="hero-title">
+            Неоновая <span>бомба хайпа</span><br />в сети TON.
+          </h1>
           <p class="hero-subtitle">
-            HYPEBOMB (HBOMB) — мем-токен, созданный как чистая концентрированная
-            FOMO-энергия. Никаких скучных отчётов. Только хайп, комьюнити и взрывной
-            маркетинг.
+            HYPEBOMB (HBOMB) — мем-токен, созданный ради чистого адреналина,
+            комьюнити и взрывного неонового вайба. Мы не обещаем «луну» —
+            мы сами взрываем тренды.
           </p>
           <div class="buttons">
-            <a href="#buy" class="btn btn-primary">🚀 Buy HBOMB</a>
-            <a href="#community" class="btn btn-outline">👾 Join Community</a>
+            <a href="#buy" class="btn btn-primary">🚀 Купить HBOMB</a>
+            <a href="https://t.me/hypebomb_official" class="btn btn-outline" target="_blank">
+              ✈️ Присоединяйтесь в Telegram
+            </a>
           </div>
           <div class="hero-meta">
-            DYOR. Ничего здесь не является финансовым советом. Это мем, но
-            мемы меняют рынки.
+            DYOR. Ничего на этом сайте не является финансовым советом. Это мем,
+            но мемы иногда двигают рынок сильнее любых отчётов и презентаций.
           </div>
         </div>
 
-        <aside class="hero-card">
-          <div class="hero-card-title">HBOMB Live Snapshot</div>
-          <div class="hero-card-grid">
-            <div class="stat">
-              <div class="stat-label">Token</div>
-              <div class="stat-value">HYPEBOMB (HBOMB)</div>
+        <aside class="hero-visual">
+          <div class="hero-orb-wrap">
+            <div class="hero-orb-inner">
+              <div class="hero-timer">
+                23<span class="blink">:</span>59
+              </div>
             </div>
-            <div class="stat">
-              <div class="stat-label">Chain</div>
-              <div class="stat-value">TON / EVM / …</div>
-            </div>
-            <div class="stat">
-              <div class="stat-label">Total Supply</div>
-              <div class="stat-value">1 000 000 000 HBOMB</div>
-            </div>
-            <div class="stat">
-              <div class="stat-label">Contract</div>
-              <div class="stat-value">Soon™</div>
-            </div>
+            <div class="hero-flame"></div>
           </div>
         </aside>
       </section>
 
+      <!-- SNAPSHOT -->
+      <section style="margin-top:-16px;">
+        <div class="card" style="border-radius:22px;">
+          <div class="card-title" style="margin-bottom:10px;">HBOMB Snapshot</div>
+          <div
+            style="
+              display:grid;
+              grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+              gap:12px;
+              font-size:13px;
+            "
+          >
+            <div class="card" style="background:rgba(15,23,42,0.95); margin:0;">
+              <div class="card-title" style="margin-bottom:4px;font-size:12px;opacity:.75;">Токен</div>
+              <div style="font-weight:600;">HYPEBOMB (HBOMB)</div>
+            </div>
+            <div class="card" style="background:rgba(15,23,42,0.95); margin:0;">
+              <div class="card-title" style="margin-bottom:4px;font-size:12px;opacity:.75;">Сеть</div>
+              <div style="font-weight:600;">TON</div>
+            </div>
+            <div class="card" style="background:rgba(15,23,42,0.95); margin:0;">
+              <div class="card-title" style="margin-bottom:4px;font-size:12px;opacity:.75;">Total Supply</div>
+              <div style="font-weight:600;">1 000 000 000 HBOMB</div>
+            </div>
+            <div class="card" style="background:rgba(15,23,42,0.95); margin:0;">
+              <div class="card-title" style="margin-bottom:4px;font-size:12px;opacity:.75;">Контракт</div>
+              <div style="font-weight:600;">soon</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- ABOUT -->
       <section id="about">
-        <h2>What is HYPEBOMB?</h2>
+        <h2>Что такое HYPEBOMB?</h2>
         <p class="section-subtitle">
-          Это токен, который существует ради одной цели — взорвать инфополе и
-          собрать вокруг себя комьюнити, живущее в режиме “always degen”.
+          Это мем-токен, который существует ради одной цели — собрать вокруг себя
+          комьюнити, живущее в режиме «always degen», и создать яркий, узнаваемый
+          неоновый нарратив внутри экосистемы TON.
         </p>
         <div class="card">
           <div class="card-title">Идея</div>
           <p>
-            HYPEBOMB родился как ответ на скучные, переинжиниринговые криптопроекты.
-            Никаких 50-страничных whitepaper. Понятный нарратив, яркий бренд,
-            агрессивный мем-маркетинг и честный запуск.
+            HYPEBOMB — ответ на скучные и переусложнённые криптопроекты с
+            50-страничными whitepaper. Вместо этого: простой посыл, мощный
+            визуальный стиль, честный запуск и агрессивный мем-маркетинг. Рост
+            токена строится не на пустых обещаниях, а на силе комьюнити и
+            хайпа, который оно создаёт.
           </p>
         </div>
       </section>
@@ -336,29 +641,34 @@
       <section id="tokenomics">
         <h2>Tokenomics</h2>
         <p class="section-subtitle">
-          Прозрачная структура, без скрытых аллокаций и странных токен-локов.
-          Всё, чтобы комьюнити доверяло, а хейтеры завидовали.
+          Прозрачная и понятная структура без скрытых аллокаций и странных
+          локов. Всё, чтобы комьюнити доверяло, а хейтеры завидовали.
         </p>
         <div class="tokenomics-grid">
           <div class="card">
             <div class="card-title">Liquidity</div>
-            <p>XX% в ликвидность, залочено. Без доступа разработчиков.</p>
+            <p>XX% отправляется в ликвидность и залочено. Доступа команды нет.</p>
           </div>
           <div class="card">
             <div class="card-title">Community</div>
-            <p>YY% на аирдропы, конкурсы, мем-ивенты и креативные кампании.</p>
+            <p>
+              YY% резервируется под airdrop, конкурсы, мем-ивенты и поддержку
+              самых активных участников.
+            </p>
           </div>
           <div class="card">
             <div class="card-title">Marketing</div>
             <p>
-              ZZ% на коллабы, инфлюенсеров, листинги и всё, что подпитывает хайп.
+              ZZ% — на коллаборации, листинги, инфлюенсеров и кампании, которые
+              усиливают неоновый шорох вокруг HBOMB.
             </p>
           </div>
           <div class="card">
             <div class="card-title">Team</div>
             <p>
-              0% или честный вестинг — в зависимости от того, как вы решите
-              строить нарратив. Прозрачность — главное.
+              0% для команды. Весь токен — комьюнити. Мы строим бренд и хайп,
+              а не прячем аллокации. Максимальная прозрачность — основной
+              принцип.
             </p>
           </div>
         </div>
@@ -366,27 +676,29 @@
 
       <!-- HOW TO BUY -->
       <section id="buy">
-        <h2>How to Buy HBOMB</h2>
+        <h2>Как купить HBOMB</h2>
         <p class="section-subtitle">
-          Пара простых шагов, и ты уже на борту. Остальное сделает рынок.
+          Несколько простых шагов — и ты уже в радиусе неонового взрыва. Дальше
+          работает рынок и сила комьюнити.
         </p>
         <ul class="steps">
           <li>
             <div>
-              Установи кошелёк (TON, MetaMask или другой в зависимости от сети), создай
-              сид-фразу и сохрани её оффлайн.
+              Установи кошелёк TON (Tonkeeper, Tonhub и т.п.) и создай seed-фразу.
+              Сохрани её в безопасном месте оффлайн.
             </div>
           </li>
           <li>
             <div>
-              Пополни кошелёк базовой монетой сети (TON/ETH/BTCB/…),
-              чтобы оплачивать газ и покупку HBOMB.
+              Пополни кошелёк монетами TON, чтобы оплачивать комиссии сети и
+              покупку HBOMB.
             </div>
           </li>
           <li>
             <div>
-              Перейди на выбранный DEX, найди пару <strong>HBOMB / [TOKEN]</strong>,
-              проверь контракт и соверши своп.
+              Перейди на выбранный DEX в сети TON (например, STON.fi), найди
+              пару <strong>HBOMB / TON</strong>, внимательно проверь адрес
+              контракта и совершай своп.
             </div>
           </li>
         </ul>
@@ -396,31 +708,32 @@
       <section id="roadmap">
         <h2>Roadmap</h2>
         <p class="section-subtitle">
-          Это мем-токен, но план всё равно есть. И он абсолютно безумный.
+          Это мем-токен, но план всё равно есть. И он звучит как сценарий
+          неонового апокалипсиса.
         </p>
         <div class="roadmap-grid">
           <div class="card roadmap-phase">
-            <div class="roadmap-phase-title">Phase 1 – Ignition</div>
+            <div class="roadmap-phase-title">Phase 1 — Ignition</div>
             <ul>
-              <li>Запуск токена и первые листинги</li>
-              <li>Мем-кампании в Telegram и X</li>
-              <li>Первые аирдропы и конкурсы</li>
+              <li>Запуск токена и первые листинги на DEX</li>
+              <li>Оформление бренда: сайт, X, Telegram, визуал</li>
+              <li>Первые airdrop-активности и мем-конкурсы</li>
             </ul>
           </div>
           <div class="card roadmap-phase">
-            <div class="roadmap-phase-title">Phase 2 – Explosion</div>
+            <div class="roadmap-phase-title">Phase 2 — Explosion</div>
             <ul>
-              <li>Листинги на CEX</li>
-              <li>Инфлюенсерские коллабы</li>
-              <li>HYPEBOMB merch и NFT-коллекция</li>
+              <li>Коллаборации и партнёрства внутри TON</li>
+              <li>Листинги на более крупных платформах</li>
+              <li>Мерч, NFT и тематические комьюнити-ивенты</li>
             </ul>
           </div>
           <div class="card roadmap-phase">
-            <div class="roadmap-phase-title">Phase 3 – Fallout</div>
+            <div class="roadmap-phase-title">Phase 3 — Fallout</div>
             <ul>
-              <li>Игровые или соц-механики вокруг HBOMB</li>
-              <li>Партнёрства с другими мем-проектами</li>
-              <li>Расширение экосистемы HYPEBOMB</li>
+              <li>Игровые и социальные механики вокруг HBOMB</li>
+              <li>Кросс-мем коллаборации с другими токенами</li>
+              <li>Расширение вселенной HYPEBOMB и новых продуктов</li>
             </ul>
           </div>
         </div>
@@ -428,29 +741,38 @@
 
       <!-- COMMUNITY -->
       <section id="community">
-        <h2>Join the Blast Radius</h2>
+        <h2>Комьюнити &amp; ссылки</h2>
         <p class="section-subtitle">
-          Мем-токен живёт только тогда, когда живёт его комьюнити. Вход бесплатный,
-          выход по желанию, но FOMO останется с тобой навсегда.
+          Мем-токен живёт только тогда, когда живёт его комьюнити. Добро
+          пожаловать в неоновый подземный бункер HBOMB.
         </p>
         <div class="card">
-          <div class="card-title">Socials</div>
-          <p class="btn-secondary-text">
+          <div class="card-title">Где нас найти</div>
+          <p style="font-size:12px;opacity:.8;margin-bottom:10px;">
+            Когда токен будет залистен, сюда можно добавить прямую ссылку на DEX
+            и график. Пока это — точка сборки комьюнити.
           </p>
           <div class="buttons">
-            <a href="https://t.me/hypebomb_official" class="btn btn-outline">Telegram</a>
-            <a href="https://x.com/HypebombX" class="btn btn-outline">X (Twitter)</a>
-            <a href="#" class="btn btn-outline">DEX / Chart</a>
+            <a href="https://t.me/hypebomb_official" class="btn btn-outline" target="_blank">
+              ✈️ Telegram
+            </a>
+            <a href="https://x.com/HypebombX" class="btn btn-outline" target="_blank">
+              🐦 X (Twitter)
+            </a>
+            <a href="#" class="btn btn-outline">
+              📈 DEX / Chart
+            </a>
           </div>
         </div>
       </section>
     </main>
 
     <footer>
-      <div>© HYPEBOMB. This is a meme. Not financial advice.</div>
+      <div>© HYPEBOMB • HBOMB. Это мем-токен. Не является финансовым советом.</div>
       <div class="social-links">
-        <span class="pill">CA: soon</span>
         <span class="pill">Ticker: HBOMB</span>
+        <span class="pill">Chain: TON</span>
+        <span class="pill">The fuse is lit 💣</span>
       </div>
     </footer>
   </div>
