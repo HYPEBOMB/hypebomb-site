@@ -276,7 +276,7 @@
 
     .hero-orb-wrap {
       width: 100%;
-      max-width: 340px;
+      max-width: 260px; /* уменьшили круг */
       aspect-ratio: 1/1;
       border-radius: 999px;
       background:
@@ -285,7 +285,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 26px;
+      padding: 22px;  /* чуть меньше отступ */
       position: relative;
       overflow: hidden;
       animation: heroFloat 5s ease-in-out infinite;
@@ -303,22 +303,20 @@
       box-shadow: none;
     }
 
-   /* PNG-бомба внутри шара */
-.bomb-img {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 140%;           /* главное — вот это, бомба больше круга */
-  height: auto;
-  transform: translate(-50%, -60%);  /* центр + выше, чтобы фитиль был снаружи */
-  pointer-events: none;
-  z-index: 2;
-  filter:
-    drop-shadow(0 0 30px rgba(56, 189, 248, 0.8))
-    drop-shadow(0 0 55px rgba(129, 140, 248, 0.75));
-}
-
-
+    /* PNG-бомба внутри шара */
+    .bomb-img {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 150%;                 /* бомба чуть больше круга */
+      height: auto;
+      transform: translate(-50%, -58%); /* поднимаем, чтобы фитиль вышел наружу */
+      pointer-events: none;
+      z-index: 2;
+      filter:
+        drop-shadow(0 0 30px rgba(56, 189, 248, 0.8))
+        drop-shadow(0 0 55px rgba(129, 140, 248, 0.75));
+    }
 
     /* ТАЙМЕР ВНУТРИ ШАРА */
 
@@ -335,7 +333,7 @@
       align-items: baseline;
 
       position: absolute;
-      top: 54%;
+      top: 58%;
       left: 50%;
       transform: translate(-50%, -50%);
       z-index: 5;
@@ -351,7 +349,7 @@
       55%, 100% { opacity: 0; }
     }
 
-    /* отключаем старые блики, они больше не нужны */
+    /* отключаем старые блики и пламя, они больше не нужны */
     .hero-orb-inner::before,
     .hero-orb-inner::after,
     .hero-flame {
@@ -362,17 +360,6 @@
     @keyframes heroFloat {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-8px); }
-    }
-
-    @keyframes flamePulse {
-      0%, 100% {
-        transform: translateY(0) rotate(-12deg);
-        box-shadow: 0 0 22px rgba(248, 250, 252, 0.7);
-      }
-      50% {
-        transform: translateY(-3px) rotate(-10deg);
-        box-shadow: 0 0 40px rgba(248, 250, 252, 0.95);
-      }
     }
 
     /* GENERAL SECTIONS */
