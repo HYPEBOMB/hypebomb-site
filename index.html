@@ -309,15 +309,17 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 100%;                 /* круг бомбы ≈ кругу шара */
-  height: auto;
-  transform: translate(-50%, -60%); /* чуть выше центра, чтобы фитиль вылезал */
+  width: 100%;          /* ← ключевое: не больше, не меньше */
+  height: 100%;         /* ← бомба ровно ровно по кругу */
+  transform: translate(-50%, -55%); /* поднимаем чтобы фитиль вышел наружу */
+  object-fit: contain;
   pointer-events: none;
   z-index: 2;
   filter:
     drop-shadow(0 0 30px rgba(56, 189, 248, 0.8))
     drop-shadow(0 0 55px rgba(129, 140, 248, 0.75));
 }
+
 
     /* ТАЙМЕР ВНУТРИ ШАРА */
 
