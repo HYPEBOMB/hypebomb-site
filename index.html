@@ -23,21 +23,28 @@
   --glow-violet: 0 0 40px rgba(167, 139, 250, 0.6);
 }
 
-/* ——— НЕОНОВЫЕ ЗАГОЛОВКИ ——— */
+/* ====== СТИЛИ ДЛЯ HERO TITLE ====== */
 
-/* The First + on TON. — яркий неон, как Hype Bomb раньше */
-.hero-title span:first-child,
-.hero-title br + span + br + span {
+/* Общий стиль — весь текст делаем неоновым */
+.hero-title {
   background: linear-gradient(135deg, #38bdf8, #a855f7);
   -webkit-background-clip: text;
   color: transparent;
 }
 
-/* Hype Bomb — огненный жирный градиент */
-.hero-title span:nth-child(2) {
-  background: linear-gradient(135deg, #f97316, #facc15, #dc2626, #f43f5e);
+/* "Hype Bomb" — единственный span → красим огненным градиентом */
+.hero-title span {
+  background: linear-gradient(135deg, #f97316, #fb923c, #facc15, #dc2626);
   -webkit-background-clip: text;
   color: transparent;
+}
+
+/* Для красоты — свечение */
+.hero-title span {
+  text-shadow:
+    0 0 8px rgba(249, 115, 22, 0.7),
+    0 0 14px rgba(255, 180, 30, 0.8),
+    0 0 22px rgba(255, 90, 0, 1);
 }
 
 
