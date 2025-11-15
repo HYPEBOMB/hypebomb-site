@@ -324,12 +324,8 @@
     }
 
     @keyframes blinkColon {
-      0%, 45% {
-        opacity: 1;
-      }
-      55%, 100% {
-        opacity: 0;
-      }
+      0%, 45% { opacity: 1; }
+      55%, 100% { opacity: 0; }
     }
 
     .hero-orb-inner::before {
@@ -379,12 +375,8 @@
     }
 
     @keyframes heroFloat {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-8px);
-      }
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
     }
 
     @keyframes flamePulse {
@@ -576,7 +568,7 @@
         <aside class="hero-visual">
           <div class="hero-orb-wrap">
             <div class="hero-orb-inner">
-              <!-- ЖИВОЙ ТАЙМЕР -->
+              <!-- ГЛОБАЛЬНЫЙ ТАЙМЕР ДО ПОЛУНОЧИ UTC -->
               <div id="countdown" class="hero-timer">
                 23<span class="blink">:</span>59
               </div>
@@ -778,35 +770,40 @@
     </footer>
   </div>
 
-  <!-- СКРИПТ ОБРАТНОГО ОТСЧЁТА 23:59 → 00:00 -->
+  <!-- ГЛОБАЛЬНЫЙ ОБРАТНЫЙ ОТСЧЁТ ДО СЛЕДУЮЩЕЙ ПОЛУНОЧИ (UTC), ФОРМАТ ЧЧ:ММ -->
   <script>
-    let minutes = 23;
-    let seconds = 59;
+    function updateGlobalTimer() {
+      const el = document.getElementById("countdown");
+      if (!el) return;
 
-    function updateTimer() {
-      const display = document.getElementById("countdown");
-      if (!display) return;
+      const now = new Date();
 
-      const blinkSpan = '<span class="blink">:</span>';
+      // следующая полуночь по UTC
+      const nextMidnightUTC = new Date(Date.UTC(
+        now.getUTCFullYear(),
+        now.getUTCMonth(),
+        now.getUTCDate() + 1,
+        0, 0, 0
+      ));
 
-      let m = minutes < 10 ? "0" + minutes : minutes;
-      let s = seconds < 10 ? "0" + seconds : seconds;
-
-      display.innerHTML = m + blinkSpan + s;
-
-      if (minutes === 0 && seconds === 0) return;
-
-      if (seconds === 0) {
-        minutes--;
-        seconds = 59;
-      } else {
-        seconds--;
+      const diffMs = nextMidnightUTC - now;
+      if (diffMs <= 0) {
+        el.innerHTML = "00<span class='blink'>:</span>00";
+        return;
       }
+
+      const totalSeconds = Math.floor(diffMs / 1000);
+      const hours = Math.floor(totalSeconds / 3600);
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+
+      const hh = hours.toString().padStart(2, "0");
+      const mm = minutes.toString().padStart(2, "0");
+
+      el.innerHTML = hh + "<span class='blink'>:</span>" + mm;
     }
 
-    // первый вызов сразу, потом каждую секунду
-    updateTimer();
-    setInterval(updateTimer, 1000);
+    updateGlobalTimer();
+    setInterval(updateGlobalTimer, 1000);
   </script>
 </body>
 </html>
