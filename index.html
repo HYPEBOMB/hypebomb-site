@@ -8,20 +8,38 @@
     name="description"
     content="HYPEBOMB (HBOMB) — неоновый мем-токен на TON. Чистый хайп, комьюнити и взрывной маркетинг. The fuse is lit."
   />
-  <style>
-    :root {
-      --bg-dark: #040414;
-      --bg-deep: #050519;
-      --accent-blue: #38bdf8;
-      --accent-violet: #7c3aed;
-      --accent-soft: #a5b4fc;
-      --text-main: #f9fafb;
-      --text-muted: #9ca3af;
-      --card-bg: rgba(10, 16, 40, 0.96);
-      --border-subtle: rgba(148, 163, 184, 0.55);
-      --glow-blue: 0 0 35px rgba(56, 189, 248, 0.55);
-      --glow-violet: 0 0 40px rgba(167, 139, 250, 0.6);
-    }
+ <style>
+:root {
+  --bg-dark: #040414;
+  --bg-deep: #050519;
+  --accent-blue: #38bdf8;
+  --accent-violet: #7c3aed;
+  --accent-soft: #a5b4fc;
+  --text-main: #f9fafb;
+  --text-muted: #9ca3af;
+  --card-bg: rgba(10, 16, 40, 0.96);
+  --border-subtle: rgba(148, 163, 184, 0.55);
+  --glow-blue: 0 0 35px rgba(56, 189, 248, 0.55);
+  --glow-violet: 0 0 40px rgba(167, 139, 250, 0.6);
+}
+
+/* ——— НЕОНОВЫЕ ЗАГОЛОВКИ ——— */
+
+/* The First + on TON. — яркий неон, как Hype Bomb раньше */
+.hero-title span:first-child,
+.hero-title br + span + br + span {
+  background: linear-gradient(135deg, #38bdf8, #a855f7);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Hype Bomb — огненный жирный градиент */
+.hero-title span:nth-child(2) {
+  background: linear-gradient(135deg, #f97316, #facc15, #dc2626, #f43f5e);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
 
     * {
       box-sizing: border-box;
@@ -531,8 +549,11 @@
             <div class="badge">Community Driven</div>
           </div>
           <h1 class="hero-title">
-            The First<br><span>Hype Bomb</span><br>on TON.
-          </h1>
+  <span class="neon-blue">The First</span><br>
+  <span class="fire-gradient">Hype Bomb</span><br>
+  <span class="neon-blue">on TON.</span>
+</h1>
+
           <p class="hero-subtitle">
             HYPEBOMB (HBOMB) — мем-токен, созданный ради чистого адреналина,
             комьюнити и взрывного неонового вайба. Мы не обещаем «луну» —
