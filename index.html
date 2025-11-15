@@ -343,8 +343,8 @@
       align-items: baseline;
 
       position: absolute;
-      top: 58%;
-      left: 50%;
+      top: 51%;
+      left: 46%;
       transform: translate(-50%, -50%);
       z-index: 5;
     }
@@ -500,7 +500,7 @@
 </head>
 <body>
   <div class="container">
-    <header>
+    <header style="position: relative;">
       <div class="logo-wrap">
         <div class="logo-orb">
           <!-- Если будет своё PNG-лого, просто раскомментируй строку ниже и положи файл рядом -->
@@ -512,7 +512,10 @@
           <div class="logo-text-sub">Неоновый мем-токен на TON</div>
         </div>
       </div>
-      <div class="tag-pill">
+      <div
+        class="tag-pill"
+        style="position:absolute; right:260px; top:12px; z-index:20;"
+      >
         <span class="tag-dot"></span>
         The fuse is lit. Tick… Tick… 💣
       </div>
