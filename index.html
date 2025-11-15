@@ -576,7 +576,8 @@
         <aside class="hero-visual">
           <div class="hero-orb-wrap">
             <div class="hero-orb-inner">
-              <div class="hero-timer">
+              <!-- ЖИВОЙ ТАЙМЕР -->
+              <div id="countdown" class="hero-timer">
                 23<span class="blink">:</span>59
               </div>
             </div>
@@ -776,5 +777,36 @@
       </div>
     </footer>
   </div>
+
+  <!-- СКРИПТ ОБРАТНОГО ОТСЧЁТА 23:59 → 00:00 -->
+  <script>
+    let minutes = 23;
+    let seconds = 59;
+
+    function updateTimer() {
+      const display = document.getElementById("countdown");
+      if (!display) return;
+
+      const blinkSpan = '<span class="blink">:</span>';
+
+      let m = minutes < 10 ? "0" + minutes : minutes;
+      let s = seconds < 10 ? "0" + seconds : seconds;
+
+      display.innerHTML = m + blinkSpan + s;
+
+      if (minutes === 0 && seconds === 0) return;
+
+      if (seconds === 0) {
+        minutes--;
+        seconds = 59;
+      } else {
+        seconds--;
+      }
+    }
+
+    // первый вызов сразу, потом каждую секунду
+    updateTimer();
+    setInterval(updateTimer, 1000);
+  </script>
 </body>
 </html>
