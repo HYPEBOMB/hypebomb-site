@@ -23,32 +23,21 @@
   --glow-violet: 0 0 40px rgba(167, 139, 250, 0.6);
 }
 
-/* ====== СТИЛИ ДЛЯ HERO TITLE ====== */
+/* ====== HERO TITLE: белый текст + огненный "Hype Bomb" ====== */
 
-/* ====== СТИЛИ ДЛЯ HERO TITLE — ЧЁТКИЕ, НЕ РАЗМАЗАННЫЕ ====== */
-
-/* весь заголовок остаётся белым */
+/* "The First" и "on TON." — обычный белый, чёткий */
 .hero-title {
-  color: #f9fafb;
+  color: var(--text-main);
 }
 
-/* только "Hype Bomb" делаем огненным градиентом */
+/* Только "Hype Bomb" (внутри span) — огненный градиент */
 .hero-title span {
   background: linear-gradient(135deg, #f97316, #fb923c, #facc15, #f97316);
   -webkit-background-clip: text;
   color: transparent;
   text-shadow:
-    0 0 4px rgba(249, 115, 22, 0.7),
-    0 0 10px rgba(248, 250, 252, 0.3);
-}
-
-
-/* Для красоты — свечение */
-.hero-title span {
-  text-shadow:
-    0 0 8px rgba(249, 115, 22, 0.7),
-    0 0 14px rgba(255, 180, 30, 0.8),
-    0 0 22px rgba(255, 90, 0, 1);
+    0 0 3px rgba(249, 115, 22, 0.7),
+    0 0 6px rgba(249, 115, 22, 0.9);
 }
 
 
