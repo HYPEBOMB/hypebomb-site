@@ -23,23 +23,6 @@
   --glow-violet: 0 0 40px rgba(167, 139, 250, 0.6);
 }
 
-/* ====== HERO TITLE: белый текст + огненный "Hype Bomb" ====== */
-
-/* "The First" и "on TON." — обычный белый, чёткий */
-.hero-title {
-  color: var(--text-main);
-}
-
-/* Только "Hype Bomb" (внутри span) — огненный градиент */
-.hero-title span {
-  background: linear-gradient(135deg, #f97316, #fb923c, #facc15, #f97316);
-  -webkit-background-clip: text;
-  color: transparent;
-  text-shadow:
-    0 0 3px rgba(249, 115, 22, 0.7),
-    0 0 6px rgba(249, 115, 22, 0.9);
-}
-
 
     * {
       box-sizing: border-box;
@@ -218,18 +201,32 @@
       color: var(--accent-soft);
     }
 
-    .hero-title {
-      font-size: clamp(32px, 5vw, 52px);
-      font-weight: 800;
-      line-height: 1.1;
-      margin-bottom: 16px;
-    }
+   /* === HERO TITLE: размер + цвета === */
+.hero-title {
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 16px;
+  color: var(--text-main); /* базовый белый */
+}
 
-    .hero-title span {
-      background: linear-gradient(135deg, #38bdf8, #a855f7);
-      -webkit-background-clip: text;
-      color: transparent;
-    }
+/* "The First" и "on TON." — неоновый синий */
+.hero-title .neon-blue {
+  background: linear-gradient(135deg, #38bdf8, #a855f7);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* "Hype Bomb" — огненный градиент */
+.hero-title .fire-gradient {
+  background: linear-gradient(135deg, #f97316, #fb923c, #facc15, #f97316);
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow:
+    0 0 3px rgba(249, 115, 22, 0.7),
+    0 0 6px rgba(249, 115, 22, 0.8);
+}
+
 
     .hero-subtitle {
       font-size: 15px;
